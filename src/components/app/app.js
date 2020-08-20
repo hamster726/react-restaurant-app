@@ -4,13 +4,13 @@ import AppHeader from '../app-header';
 import Background from './food-bg.jpg';
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import ItemPage from "../pages/itemPage/itemPage";
+import {connect} from 'react-redux';
 
-
-const App = () => {
+const App = ({summaryPrice}) => {
     return (
         <Router>
             <div style={{background: `url(${Background}) center center/cover no-repeat`}} className="app">
-                <AppHeader total={50}/>
+                <AppHeader total={summaryPrice}/>
                 <Switch>
                     <Route path='/menu' exact component={MainPage}/>
                     <Route path='/cart/' exact component={CartPage}/>
@@ -21,4 +21,13 @@ const App = () => {
     )
 }
 
-export default App;
+const mapStateToProps = (state) => {
+    return (
+        {
+            summaryPrice: state.summaryPrice
+        }
+    )
+}
+
+
+export default connect(mapStateToProps)(App);

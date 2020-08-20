@@ -17,10 +17,10 @@ const menuError = () => {
     }
 }
 
-const addedToCart = (id) => {
+const addedToCart = (item) => {
     return {
         type: 'ITEM_ADD_TO_CART',
-        payload: id
+        payload: item
     }
 }
 
@@ -31,11 +31,26 @@ const deleteFromCart = (id) => {
     }
 }
 
+const increaseCount = (id) => {
+    return {
+        type : 'ITEM_INCREASE_COUNT',
+        payload: id
+    }
+}
+
+const decreaseCount = (id) => {
+    return {
+        type : 'ITEM_DECREASE_COUNT',
+        payload: id
+    }
+}
 
 export {
     menuLoaded,
     menuRequested,
     menuError,
     addedToCart,
-    deleteFromCart
+    deleteFromCart,
+    increaseCount,
+    decreaseCount
 };

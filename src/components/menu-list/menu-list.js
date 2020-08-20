@@ -29,7 +29,7 @@ class MenuList extends Component {
             return <MenuListItem key={menuItem.id}
                                  menuItem={menuItem}
                                  renderCategory={this.renderCategory}
-                                 onAddToCart={() => this.props.onAddToCart(menuItem.id)}/>
+                                 onAddToCart={() => this.props.onAddToCart(menuItem)}/>
         })
 
     }

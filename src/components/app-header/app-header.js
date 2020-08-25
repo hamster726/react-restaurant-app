@@ -2,10 +2,11 @@ import React from 'react';
 import cartIcon from './shopping-cart-solid.svg';
 import './app-header.scss';
 import {Link} from "react-router-dom";
+import Background from "../app/food-bg.jpg";
 
 const AppHeader = ({total}) => {
     return (
-        <header className="header">
+        <header style={{background: `url(${Background})`}} className="header">
             <Link className='header__link' to="/menu/">
                 Menu
             </Link>

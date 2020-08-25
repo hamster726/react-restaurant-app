@@ -15,9 +15,37 @@ export default class RestoService {
     };
 
     getMenuItems = async () => {
-        return  await this.getResource('/menu/');
+        return await this.getResource('/menu/');
 
         // return menu.map(this._transformMenu);
+    }
+
+    setOrder = async (order) => {
+        const number = await this.getOrderNumber();
+
+        const newOrder = {
+            id: number,
+            order: order
+        }
+
+        const response = await fetch(`${this._apiBase}/orders`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json;charset=utf-8'
+            },
+            body: JSON.stringify(newOrder)
+        });
+        if (!response.ok) {
+            throw new Error('Error sending order to server');
+        }
+
+    }
+
+    getOrderNumber = async () => {
+        const res = await this.getResource('/orders');
+        const orderNumber = res.length + 1;
+
+        return orderNumber;
     }
 
     _transformMenu(menu) {
@@ -26,7 +54,7 @@ export default class RestoService {
             id: menu.id,
             price: menu.price,
             title: menu.title,
-            url: menu.url
+            url: menu.url,
         }
 
     }

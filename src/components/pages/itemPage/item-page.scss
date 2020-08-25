@@ -3,7 +3,7 @@
         width: 350px;
         min-height: 400px;
         background-color: #fff;
-        box-shadow: 5px 5px 45px rgba(256,256,256,.1);
+        box-shadow: 100px -5px 50px black;
         border-radius: 8px;
         padding: 20px;
         margin-right: 40px;
@@ -38,5 +38,17 @@
         color: #fff;
         font-size: 16px;
         cursor: pointer;
+
+        &-submit {
+            margin-left: 10px;
+            width: 150px;
+            height: 40px;
+            border: none;
+            background-color: #29a745;
+            border-radius: 4px;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+        }
     }
 }

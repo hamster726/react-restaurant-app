@@ -33,15 +33,22 @@ const deleteFromCart = (id) => {
 
 const increaseCount = (id) => {
     return {
-        type : 'ITEM_INCREASE_COUNT',
+        type: 'ITEM_INCREASE_COUNT',
         payload: id
     }
 }
 
 const decreaseCount = (id) => {
     return {
-        type : 'ITEM_DECREASE_COUNT',
+        type: 'ITEM_DECREASE_COUNT',
         payload: id
+    }
+}
+
+const acceptOrder = (bool) => {
+    return {
+        type: 'ORDER_ACCEPTED',
+        payload: bool
     }
 }
 
@@ -52,5 +59,6 @@ export {
     addedToCart,
     deleteFromCart,
     increaseCount,
-    decreaseCount
+    decreaseCount,
+    acceptOrder
 };

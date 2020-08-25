@@ -6,6 +6,7 @@ const initialState = {
     loading: true,
     error: false,
     summaryPrice: 0,
+    orderAccepted: false
 
 }
 
@@ -107,6 +108,12 @@ const reducer = (state = initialState, action) => {
                 }
             }
 
+        }
+        case 'ORDER_ACCEPTED': {
+            return {
+                ...state,
+                orderAccepted: action.payload,
+            }
         }
         default:
             return state;

@@ -9,7 +9,7 @@ import {connect} from 'react-redux';
 const App = ({summaryPrice}) => {
     return (
         <Router>
-            <div style={{background: `url(${Background}) center center/cover no-repeat`}} className="app">
+            <div className="app">
                 <AppHeader total={summaryPrice}/>
                 <Switch>
                     <Route path='/menu' exact component={MainPage}/>

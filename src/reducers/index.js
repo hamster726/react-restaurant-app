@@ -115,6 +115,13 @@ const reducer = (state = initialState, action) => {
                 orderAccepted: action.payload,
             }
         }
+        case 'CLEAR_CART': {
+            return {
+                ...state,
+                items: [],
+                summaryPrice: 0
+            }
+        }
         default:
             return state;
     }

@@ -1,7 +1,7 @@
 export default class RestoService {
 
     constructor(props) {
-        this._apiBase = 'http://localhost:5726'
+        this._apiBase = 'https://us-central1-restaurant-app-yesha.cloudfunctions.net/menu/'
     }
 
     getResource = async (url) => {

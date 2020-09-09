@@ -1,7 +1,6 @@
 import React from 'react';
 import {MainPage, CartPage} from '../pages';
 import AppHeader from '../app-header';
-import Background from './food-bg.jpg';
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import ItemPage from "../pages/itemPage/itemPage";
 import {connect} from 'react-redux';

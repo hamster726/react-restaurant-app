@@ -1,11 +1,12 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import './cart-table.scss';
-import {deleteFromCart, increaseCount, decreaseCount, acceptOrder} from "../../actions";
+import {deleteFromCart, increaseCount, decreaseCount, acceptOrder, clearCart} from "../../actions";
 import WithRestoService from "../hoc";
+import {Link} from "react-router-dom";
 
 
-const CartTable = ({items, deleteFromCart, increaseCount, decreaseCount, RestoService, acceptOrder, orderAccepted}) => {
+const CartTable = ({items, deleteFromCart, increaseCount, decreaseCount, RestoService, acceptOrder, orderAccepted, clearCart}) => {
 
     if (items.length === 0) return (
         <div className="cart__list">
@@ -16,14 +17,22 @@ const CartTable = ({items, deleteFromCart, increaseCount, decreaseCount, RestoSe
 
     const orderAcceptPopup = () => {
         return (
-            <>
-                <div className="orderAcceptContainer">
-                    <div className="orderAcceptContainer popup">
-                        <div onClick={() => acceptOrder(false)} className="popup-close">&times;</div>
-                        Your order is accepted! 🎉
-                    </div>
+
+            <div className="orderAcceptContainer">
+
+                <div className="orderAcceptContainer popup">
+
+                    <Link to='/menu'>
+                        <div onClick={() => {acceptOrder(false); clearCart()}} className="popup-close">
+                            &times;
+                        </div>
+                    </Link>
+
+                    Your order is accepted! 🎉
+
                 </div>
-            </>
+            </div>
+
         )
     }
 
@@ -32,8 +41,9 @@ const CartTable = ({items, deleteFromCart, increaseCount, decreaseCount, RestoSe
 
     return (
         <>
-
+            {viewElement}
             <div className="cart__list">
+
                 <div className="cart__title">Your order</div>
 
                 <button onClick={() => {
@@ -62,7 +72,7 @@ const CartTable = ({items, deleteFromCart, increaseCount, decreaseCount, RestoSe
                                     </div>
                                     <div onClick={() => deleteFromCart(id)} className="cart__close">&times;</div>
                                 </div>
-                                {viewElement}
+
                             </>
                         )
 
@@ -99,7 +109,8 @@ const mapDispatchToProps = {
     deleteFromCart,
     increaseCount,
     decreaseCount,
-    acceptOrder
+    acceptOrder,
+    clearCart
 }
 
 

@@ -52,6 +52,12 @@ const acceptOrder = (bool) => {
     }
 }
 
+const clearCart = () => {
+    return {
+        type: 'CLEAR_CART'
+    }
+}
+
 export {
     menuLoaded,
     menuRequested,
@@ -60,5 +66,6 @@ export {
     deleteFromCart,
     increaseCount,
     decreaseCount,
-    acceptOrder
+    acceptOrder,
+    clearCart
 };
